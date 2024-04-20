@@ -25,12 +25,13 @@ jobs:
                 working-directory: ${{env.ROOTH_PATH}}
         steps:
             - name: Checkout
-              uses: actions/checkout@v4
+              uses: actions/checkout@v2
             - name: 'Setup_terraform'
               uses: hashicorp/setup-terraform@v3
               with:
                 terraform_version: 1.7.5
             - name: 'Terraform init'
+              id: init
               working-directory: ${{env.ROOTH_PATH}}
               run: terraform init
             - name: 'set workspace'
