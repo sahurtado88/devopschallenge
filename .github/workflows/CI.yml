@@ -16,3 +16,8 @@ jobs:
             - run: npm i -g prettier
             - run: CI=true npm run test
             - run: npm run build
+            - name: 'Upload Artifact'
+              uses: actions/upload-artifact@v4
+              with:
+               name: build-files
+               path: build
